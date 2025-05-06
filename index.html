@@ -1,135 +1,174 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Окна под ключ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #0078D7;
+      --background: #f7f9fc;
+      --text: #222;
+      --card: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
-      background: #f9f9f9;
-      color: #333;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(120deg, #0078D7, #005fa3);
+      background: linear-gradient(to right, rgba(0,120,215,0.85), rgba(0,120,215,0.65)), url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
       color: white;
+      padding: 100px 20px 120px;
       text-align: center;
-      padding: 60px 20px;
+      position: relative;
     }
 
     header h1 {
-      margin: 0 0 10px;
+      font-size: 42px;
+      margin-bottom: 10px;
     }
 
-    header img {
-      max-width: 200px;
-      margin-top: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    header p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #fff;
+      color: var(--primary);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #f0f0f0;
     }
 
     .container {
-      max-width: 900px;
-      margin: 40px auto;
+      max-width: 1100px;
+      margin: -60px auto 40px;
       padding: 0 20px;
     }
 
     .features {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
-      justify-content: space-between;
     }
 
     .feature {
-      flex: 1 1 200px;
-      background: white;
-      border-radius: 10px;
+      background: var(--card);
       padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
     }
 
     .feature h3 {
       margin-top: 0;
+      color: var(--primary);
     }
 
     form {
+      margin-top: 60px;
       background: white;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 40px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
     }
 
-    form input, form button {
+    form h2 {
+      margin-top: 0;
+    }
+
+    form input,
+    form button {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       margin: 10px 0;
-      border-radius: 5px;
       border: 1px solid #ccc;
+      border-radius: 8px;
       font-size: 16px;
     }
 
     form button {
-      background: #0078D7;
+      background-color: var(--primary);
       color: white;
       border: none;
+      font-weight: 600;
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background-color: #005fa3;
     }
 
     footer {
-      background: #333;
-      color: white;
       text-align: center;
       padding: 20px;
-      margin-top: 60px;
-    }
-
-    @media (max-width: 600px) {
-      .features {
-        flex-direction: column;
-      }
+      background-color: #eee;
+      font-size: 14px;
+      color: #666;
+      margin-top: 80px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Установка окон под ключ</h1>
-    <p>Светлый дом с новыми окнами — за 1 день!</p>
-<img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80" alt="Современное окно">
+    <h1>Окна под ключ</h1>
+    <p>Свет, тепло и тишина в вашем доме — за 1 день</p>
+    <a href="#form" class="btn">Оставить заявку</a>
   </header>
 
   <div class="container">
-    <h2>Почему мы?</h2>
     <div class="features">
       <div class="feature">
-        <h3>🚚 Бесплатный выезд</h3>
-        <p>Замерщик приедет в любое удобное время — бесплатно.</p>
+        <h3>🔍 Бесплатный замер</h3>
+        <p>Замерщик приедет в удобное для вас время. Без предоплаты, без обязательств.</p>
       </div>
       <div class="feature">
-        <h3>🛠 Гарантия до 10 лет</h3>
-        <p>Мы уверены в своей работе. Печать и договор — всё официально.</p>
+        <h3>🔧 Надёжный монтаж</h3>
+        <p>Все сотрудники — с опытом от 5 лет. Используем проверенные материалы.</p>
       </div>
       <div class="feature">
-        <h3>🏆 Более 1000 довольных клиентов</h3>
-        <p>Реальные отзывы и фотокейсы. Можно показать при встрече.</p>
+        <h3>💼 Гарантия до 10 лет</h3>
+        <p>Официальный договор, чёткие сроки и обязательства. Работаем по всей РФ.</p>
+      </div>
+      <div class="feature">
+        <h3>💬 Поддержка 24/7</h3>
+        <p>Отвечаем в WhatsApp и по телефону. После установки — всегда на связи.</p>
       </div>
     </div>
 
-    <form>
+    <form id="form">
       <h2>Оставьте заявку</h2>
       <input type="text" placeholder="Ваше имя" required>
-      <input type="tel" placeholder="Телефон" required>
+      <input type="tel" placeholder="Ваш телефон" required>
       <button type="submit">Перезвоните мне</button>
     </form>
   </div>
 
   <footer>
-    © 2025 Окна под ключ | Все права защищены | Тел: 8 800 123-45-67
+    © 2025 Окна под ключ | Все права защищены
   </footer>
 
 </body>
